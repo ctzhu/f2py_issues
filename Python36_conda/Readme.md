@@ -19,3 +19,5 @@
    - `sign2map: Confused: THE NAME of INTERFACE is not in lcb_map[]`
    - Must first run `f2py36 test.f90 -m test -h test.pyf`
    - Then `f2py36 -c test.pyf test.f90 --fcompiler=gnu95 --compiler=mingw32` to get around it
+* 8, Missing `vcruntime140d.dll`.
+   - `f2py` might complain that this file is missing. This file is the Visual C++ 2015 debug runtime. You shouldn't link against the debug runtime for things to be distributed, end user is not going to have that DLL most likely. This DLL might be found in ` VC++ 2015 runtime redistributable`
